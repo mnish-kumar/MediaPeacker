@@ -14,6 +14,11 @@ router.post('/login', async (req, res) => {
     loginUser(req, res);
 });
 
+// User Logout
+router.post('/logout', authenticateUser, (req, res) => {
+    logoutUser(req, res);
+});
+
 // User profile (protected route - requires authentication)
 router.get('/profile', authenticateUser, (req, res) => {
     getUserProfile(req, res);
